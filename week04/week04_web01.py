@@ -7,7 +7,10 @@ values = {'stnld' : station_id}
 
 url = api + '?' + urllib.parse.urlencode(values)
 
-print(url)
+# print(url)
+
+urls = urllib.request.urlopen(url).read()
+print(urls)
 
 """
 지역 코드 : 184
