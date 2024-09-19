@@ -10,7 +10,8 @@ url = api + '?' + urllib.parse.urlencode(values)
 # print(url)
 
 urls = urllib.request.urlopen(url).read()
-print(urls)
+texts = urls.decode('utf-8')
+print(texts)
 
 """
 지역 코드 : 184
