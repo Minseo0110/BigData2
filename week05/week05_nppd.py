@@ -1,7 +1,7 @@
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-#from sklearn.linear_model import LinearRegression
+from sklearn.linear_model import LinearRegression
 from sklearn.neighbors import KNeighborsRegressor
 
 lifesat = pd.read_csv("https://github.com/ageron/data/raw/main/lifesat/lifesat.csv")

@@ -16,7 +16,10 @@ plt.show()
 
 #model = LinearRegression()
 #model = KNeighborsRegressor(n_neighbors=3)
-model = tglearn.LinearRegression() # Apply Custom LinearRegression model
+
+# Apply Custom LinearRegression model
+#model = tglearn.LinearRegression()
+model = tglearn.KNeighborsRegressor(3)
 
 model.fit(X, y)
 
