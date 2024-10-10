@@ -1,5 +1,5 @@
 import numpy as np
-
+# custom
 class KNeighborsRegressor:
     def __init__(self, n_neighbors=5):  # default neighbor
         self.n_neighbors = n_neighbors
