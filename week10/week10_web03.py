@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import datetime
 
 shops = []
-
+# print(datetime.datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분 %S초"))
 for i in range(1, 51):
     url = f"https://www.hollys.co.kr/store/korea/korStore2.do?pageNo={i}&sido=&gugun=&store="
     # print(url) url 확인 용도
@@ -20,8 +20,8 @@ for i in range(1, 51):
         shop_addr = tds[3].string  # 매장 주소
         shop_phone = tds[5].string  # 매장 전화번호
 
-        shops.append([shop_name]+[shop_addr]+[shop_phone]) # 2d array
+        shops.append([shop_name]+[shop_addr]+[shop_phone]+[datetime.datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분 %S초")]) # 2d array
 
 # print(shops)
-hollys_df = pd.DataFrame(shops, columns=('매장이름', '주소', '전화번호'))
+hollys_df = pd.DataFrame(shops, columns=('매장이름', '주소', '전화번호', '일시'))
 hollys_df.to_csv('hollys.csv', encoding='cp949', mode='w')
