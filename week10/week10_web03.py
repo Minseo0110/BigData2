@@ -5,7 +5,7 @@ from bs4 import BeautifulSoup
 import datetime
 
 shops = []
-# print(datetime.datetime.now().strftime("%Y년 %m월 %d일 %H시 %M분 %S초"))
+
 for i in range(1, 51):
     url = f"https://www.hollys.co.kr/store/korea/korStore2.do?pageNo={i}&sido=&gugun=&store="
     # print(url) url 확인 용도
