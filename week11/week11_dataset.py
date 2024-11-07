@@ -6,9 +6,20 @@ import matplotlib.pyplot as plt
 titanic = sns.load_dataset('titanic')
 # print(titanic['sex'].head())
 # print(titanic.info())
-gender_survived = titanic.groupby(by='sex')['survived'].mean()
-print(gender_survived)
 
+# gender_survival = titanic.groupby(by='sex')['survived'].mean().reset_index()
+# print(type(gender_survival))  # <class 'pandas.core.series.Series'>
+
+
+gender_survival = titanic.groupby(by='sex')['survived'].mean().reset_index()
+print(gender_survival)
+# print(type(gender_survival))
+print(gender_survival.info())
+
+sns.barplot(data=gender_survival, x='sex', y='survived')
+plt.title('Survival Rate by Gender')
+plt.ylabel('Survival Rate')
+plt.show()
 
 # 생존자 수와 사망자 수 시각화
 # sns.countplot(data=titanic, x='survived')
