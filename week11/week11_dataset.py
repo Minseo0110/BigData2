@@ -7,9 +7,27 @@ import matplotlib.pyplot as plt
 titanic = sns.load_dataset('titanic')
 # print(titanic.info())  # age 컬럼은 177개의 결측값이 존재
 
-# 1) 결측치 행 제거
+# 1) 결측치 행들을 중앙값(평균값)으로 채워넣기
+median_age = titanic['age'].median()
+# mean_age = titanic['age'].mean()
+# print(median_age, mean_age)
+titanic_fill_row = titanic.fillna({'age' : median_age})
+#print(titanic_fill_row)
+# 2) 생존율 계산
+titanic_fill_row['survived'] = titanic_fill_row['survived'].astype(float)
+# print(titanic_fill_row['age'])
+# # 3) 시각화
+plt.figure(figsize=(10, 5))
+sns.histplot(data=titanic_fill_row, x='age', weights='survived', bins=8, kde=True)
+plt.title('Survival Rate by Age (Fill with Median)')
+plt.xlabel('Age')
+plt.ylabel('Survival Rate (Weighted)')
+plt.show()
+
+
+# 1) 결측치 행들을 제거
 titanic_drop_row = titanic.dropna(subset=['age'])
-#print(titanic_drop_row.info())
+print(titanic_drop_row.info())
 # 2) 생존율 계산
 titanic_drop_row['survived'] = titanic_drop_row['survived'].astype(float)
 print(titanic_drop_row['survived'])
